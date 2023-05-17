@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
+import './ListItem.css';
 
 export default class ListItem extends Component {
     constructor(props){
         super(props);
         this.state = {
             isEditing: false,
-            item: this.props.item
+            item: this.props.item,
+            completed: false
         };
         this.handleRemove = this.handleRemove.bind(this);
         this.toggleForm = this.toggleForm.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.handleUpdate = this.handleUpdate.bind(this);
+        this.handleToggle = this.handleToggle.bind(this);
     }
   
     handleRemove() {
@@ -32,6 +35,10 @@ export default class ListItem extends Component {
             [evt.target.name]: evt.target.value
         })
       };
+
+    handleToggle(evt) {
+        this.props.toggle(this.props.id);
+    }
 
     render() {
         let results;
@@ -55,7 +62,9 @@ export default class ListItem extends Component {
                 <div>
                     <button onClick={this.toggleForm}>Edit</button>
                     <button onClick={this.handleRemove}>X</button>
-                    <li>{this.props.item}</li>
+                    <li className={this.props.completed ? 'completed' : ''} onClick={this.handleToggle}>
+                        {this.props.item}
+                    </li>
                 </div>
             );
         }
