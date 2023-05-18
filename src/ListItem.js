@@ -60,11 +60,18 @@ export default class ListItem extends Component {
         } else {
             results = (
                 <div className='Todo'>
-                    <button onClick={this.toggleForm}>Edit</button>
-                    <button onClick={this.handleRemove}>X</button>
                     <li className={this.props.completed ? 'Todo-item completed' : 'Todo-item'} onClick={this.handleToggle}>
                         {this.props.item}
                     </li>
+                    <div className='Todo-buttons'>
+                        <button onClick={this.toggleForm}>
+                            <i class='fas fa-pen' />
+                        </button>
+                        <button onClick={this.handleRemove}>
+                            <i class='fas fa-trash' />
+                        </button>
+                    </div>
+                    
                 </div>
             );
         }
