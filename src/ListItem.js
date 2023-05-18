@@ -45,7 +45,7 @@ export default class ListItem extends Component {
 
         if (this.state.isEditing) {
             results = (
-                <div>
+                <div className='Todo'>
                     <form onSubmit={this.handleUpdate}>
                         <input 
                             type='text' 
@@ -59,10 +59,10 @@ export default class ListItem extends Component {
             );
         } else {
             results = (
-                <div>
+                <div className='Todo'>
                     <button onClick={this.toggleForm}>Edit</button>
                     <button onClick={this.handleRemove}>X</button>
-                    <li className={this.props.completed ? 'completed' : ''} onClick={this.handleToggle}>
+                    <li className={this.props.completed ? 'Todo-item completed' : 'Todo-item'} onClick={this.handleToggle}>
                         {this.props.item}
                     </li>
                 </div>
