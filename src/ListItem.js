@@ -65,10 +65,10 @@ export default class ListItem extends Component {
                     </li>
                     <div className='Todo-buttons'>
                         <button onClick={this.toggleForm}>
-                            <i class='fas fa-pen' />
+                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                         </button>
                         <button onClick={this.handleRemove}>
-                            <i class='fas fa-trash' />
+                        <i class="fa fa-trash-o" aria-hidden="true"></i>
                         </button>
                     </div>
                     
